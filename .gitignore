@@ -45,3 +45,6 @@ next-env.d.ts
 
 # keep the example env
 !.env.example
+
+# local upload storage
+/.uploads/

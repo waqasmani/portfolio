@@ -31,6 +31,8 @@ export const attachmentMetaSchema = z.object({
   name: z.string().trim().min(1).max(200),
   size: z.number().int().min(0).max(25 * 1024 * 1024),
   type: z.string().trim().max(100),
+  /** Server-generated storage key (from /api/uploads); admin download handle. */
+  key: z.string().trim().max(300).optional(),
 });
 
 export const projectRequestSchema = z.object({
