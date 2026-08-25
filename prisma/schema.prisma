@@ -1,0 +1,288 @@
+// Prisma schema for the portfolio platform.
+// PostgreSQL is the source of truth for all dynamic content: projects,
+// blog posts, inquiries, chat, analytics, and site settings.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// Auth
+// ---------------------------------------------------------------------------
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         Role     @default(EDITOR)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  sessions              Session[]
+  posts                 BlogPost[]
+  assignedConversations ChatConversation[] @relation("AssignedConversations")
+  chatMessages          ChatMessage[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  ip        String?
+  userAgent String?
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+// ---------------------------------------------------------------------------
+// Portfolio content
+// ---------------------------------------------------------------------------
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+  ARCHIVED
+}
+
+enum ProjectCategory {
+  WEB_APP
+  SAAS
+  ECOMMERCE
+  CRM
+  API
+  OPEN_SOURCE
+}
+
+model Project {
+  id          String          @id @default(cuid())
+  slug        String          @unique
+  title       String
+  tagline     String
+  description String
+  category    ProjectCategory
+  clientType  String?
+  year        Int?
+  featured    Boolean         @default(false)
+  sortOrder   Int             @default(0)
+  status      ContentStatus   @default(PUBLISHED)
+  accent      String          @default("indigo")
+  coverImage  String?
+  problem     String?
+  solution    String?
+  challenges  Json? // [{ title, challenge, solution }]
+  architecture Json? // { frontend: [], backend: [], database: [], infrastructure: [], services: [] }
+  results     Json? // [{ value, metric, description }]
+  gallery     Json? // [{ title, description, image? }]
+  stack       String[]
+  liveUrl     String?
+  githubUrl   String?
+  views       Int             @default(0)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  publishedAt DateTime?
+
+  @@index([status, featured, sortOrder])
+  @@index([category])
+}
+
+model BlogPost {
+  id             String        @id @default(cuid())
+  slug           String        @unique
+  title          String
+  excerpt        String
+  content        String // markdown
+  category       String
+  tags           String[]
+  accent         String        @default("indigo")
+  status         ContentStatus @default(DRAFT)
+  featured       Boolean       @default(false)
+  readingTime    Int           @default(3)
+  views          Int           @default(0)
+  seoTitle       String?
+  seoDescription String?
+  authorId       String?
+  author         User?         @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  publishedAt    DateTime?
+  scheduledFor   DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@index([status, publishedAt])
+  @@index([category])
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  role        String
+  company     String
+  quote       String
+  projectName String?
+  avatarSeed  String   @default("")
+  sortOrder   Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+// ---------------------------------------------------------------------------
+// Inbound: contact messages + project requests
+// ---------------------------------------------------------------------------
+
+enum MessageStatus {
+  NEW
+  READ
+  REPLIED
+  ARCHIVED
+}
+
+enum InquiryStatus {
+  NEW
+  REVIEWING
+  CONTACTED
+  PROPOSAL_SENT
+  IN_PROGRESS
+  COMPLETED
+  REJECTED
+}
+
+enum RequestPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+model ContactMessage {
+  id          String        @id @default(cuid())
+  name        String
+  email       String
+  company     String?
+  subject     String
+  projectType String?
+  budget      String?
+  message     String
+  status      MessageStatus @default(NEW)
+  createdAt   DateTime      @default(now())
+
+  @@index([status, createdAt])
+}
+
+model ProjectRequest {
+  id           String          @id @default(cuid())
+  name         String
+  email        String
+  company      String?
+  title        String
+  category     String
+  budget       String
+  deadline     String?
+  technologies String[]
+  description  String
+  priority     RequestPriority @default(NORMAL)
+  attachments  Json? // [{ name, size, type }]
+  aiBrief      Json? // snapshot of the AI-generated project brief
+  status       InquiryStatus   @default(NEW)
+  notes        String?
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  @@index([status, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Live chat
+// ---------------------------------------------------------------------------
+
+enum ConversationStatus {
+  OPEN
+  ASSIGNED
+  CLOSED
+}
+
+enum ChatSender {
+  VISITOR
+  ADMIN
+  BOT
+}
+
+model ChatConversation {
+  id                String             @id @default(cuid())
+  visitorId         String
+  visitorName       String?
+  visitorEmail      String?
+  status            ConversationStatus @default(OPEN)
+  assignedToId      String?
+  assignedTo        User?              @relation("AssignedConversations", fields: [assignedToId], references: [id], onDelete: SetNull)
+  lastMessageAt     DateTime           @default(now())
+  visitorLastSeenAt DateTime?
+  adminLastSeenAt   DateTime?
+  pageUrl           String?
+  userAgent         String?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+
+  messages ChatMessage[]
+
+  @@index([status, lastMessageAt])
+  @@index([visitorId])
+}
+
+model ChatMessage {
+  id             String           @id @default(cuid())
+  conversationId String
+  conversation   ChatConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         ChatSender
+  authorId       String?
+  author         User?            @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  content        String
+  attachment     Json? // { name, size, type }
+  createdAt      DateTime         @default(now())
+
+  @@index([conversationId, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Analytics (privacy-friendly, first-party)
+// ---------------------------------------------------------------------------
+
+model AnalyticsEvent {
+  id          String   @id @default(cuid())
+  type        String // "pageview" | "event"
+  name        String? // conversion event name, e.g. "contact_submitted"
+  path        String
+  referrer    String?
+  country     String?
+  device      String? // mobile | tablet | desktop
+  browser     String?
+  visitorHash String // anonymous, daily-rotating hash — no PII stored
+  createdAt   DateTime @default(now())
+
+  @@index([type, createdAt])
+  @@index([path, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Site settings (singleton row, JSON validated with zod at the edges)
+// ---------------------------------------------------------------------------
+
+model SiteSettings {
+  id        Int      @id @default(1)
+  data      Json
+  updatedAt DateTime @updatedAt
+}
