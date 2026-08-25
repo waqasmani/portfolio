@@ -1,4 +1,4 @@
-Most slow queries I get called in to look at are not exotic. They are ordinary queries against ordinary tables that grew past the point where sequential scans stay cheap. Here is the mental checklist I run through before reaching for anything clever.
+Most slow queries we get called in to look at are not exotic. They are ordinary queries against ordinary tables that grew past the point where sequential scans stay cheap. Here is the mental checklist we run through before reaching for anything clever.
 
 ## Start with evidence, not intuition
 
@@ -12,7 +12,7 @@ ORDER BY created_at DESC
 LIMIT 20;
 ```
 
-The three things I read first in the output:
+The three things we read first in the output:
 
 1. **Node type** — `Seq Scan` on a large table under a `LIMIT` usually means a missing index.
 2. **Rows expected vs. returned** — a big gap means stale statistics (`ANALYZE` the table) or a data distribution the planner can't see.
@@ -43,7 +43,7 @@ ON orders (customer_id, created_at DESC)
 WHERE status IN ('PENDING', 'PROCESSING');
 ```
 
-The index stays tiny, stays hot in cache, and writes to completed orders never touch it. Partial indexes are my favorite disproportionate win: I have replaced 40GB of bloated full-column indexes with a few hundred megabytes of partials.
+The index stays tiny, stays hot in cache, and writes to completed orders never touch it. Partial indexes are our favorite disproportionate win: we have replaced 40GB of bloated full-column indexes with a few hundred megabytes of partials.
 
 ## Covering indexes to kill heap fetches
 

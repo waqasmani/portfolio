@@ -62,7 +62,10 @@ export function truncate(text: string, length: number): string {
 }
 
 export function initials(name: string): string {
+  // CamelCase-aware so single-word brand names still yield two letters
+  // ("CustomerFlow" → "CF", "Jane Smith" → "JS").
   return name
+    .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
     .split(/\s+/)
     .map((part) => part[0])
     .filter(Boolean)

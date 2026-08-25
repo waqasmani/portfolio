@@ -75,8 +75,8 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
           url,
           datePublished: post.publishedAt?.toISOString(),
           dateModified: post.updatedAt.toISOString(),
-          author: { '@type': 'Person', name: authorName, url: siteUrl },
-          publisher: { '@type': 'Person', name: authorName },
+          author: { '@type': 'Organization', name: authorName, url: siteUrl },
+          publisher: { '@type': 'Organization', name: authorName },
           keywords: post.tags.join(', '),
           mainEntityOfPage: url,
           timeRequired: `PT${post.readingTime}M`,
@@ -165,11 +165,11 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
                 <p className="font-semibold text-ink">{authorName}</p>
                 <p className="mt-1 text-sm leading-relaxed text-muted">
                   {developer.title} — writing about the patterns and trade-offs behind production web
-                  platforms. Available for select freelance projects.
+                  platforms. Available for select client projects.
                 </p>
               </div>
               <Link href="/contact" className={buttonStyles('secondary', 'sm')}>
-                Work with me
+                Work with us
                 <ArrowRight className="size-3.5" aria-hidden />
               </Link>
             </aside>

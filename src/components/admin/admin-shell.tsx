@@ -108,8 +108,8 @@ export function AdminShell({ user, children }: { user: AdminUser; children: Reac
       {/* Desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-60 flex-col border-r border-line bg-bg-raised/60 lg:flex">
         <div className="flex h-16 items-center gap-2.5 border-b border-line px-5">
-          <span className="flex size-8 items-center justify-center rounded-lg border border-line-strong bg-panel font-mono text-[0.72rem] font-bold">
-            <span className="text-gradient">{'{'}W{'}'}</span>
+          <span className="flex size-8 items-center justify-center rounded-lg border border-line-strong bg-panel font-mono text-[0.6rem] font-bold">
+            <span className="text-gradient">{'{'}CF{'}'}</span>
           </span>
           <span className="text-[0.9rem] font-semibold text-ink">Admin</span>
         </div>

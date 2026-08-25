@@ -1,7 +1,7 @@
-# Waqas Mani — Premium Developer Portfolio Platform
+# CustomerFlow — Premium Development Studio Platform
 
-A production-grade personal brand platform for a senior full stack developer — not a static
-portfolio, but a complete application: public site, developer blog, project request intake with an
+A production-grade brand platform for CustomerFlow (customerflow.work), a full stack
+development studio — not a static portfolio, but a complete application: public site, developer blog, project request intake with an
 AI assistant, real-time live chat, privacy-friendly analytics, and a full admin dashboard, all in
 one self-hostable Next.js codebase.
 
@@ -31,7 +31,7 @@ Built with **Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · PostgreS
 - **Contact** — validated form with honeypot spam protection, availability/response-time panel
 - **Live chat** — floating widget with lead capture, real-time messaging over SSE, typing
   indicators both directions, emoji picker, file sharing, history restore, unread badges, and an
-  automatic assistant when the developer is away
+  automatic assistant when the team is away
 - Dark-first design with a light mode, `prefers-reduced-motion` respected throughout, semantic
   HTML with skip links and keyboard-accessible components
 
@@ -51,7 +51,7 @@ Built with **Next.js 16 · React 19 · TypeScript · Tailwind CSS v4 · PostgreS
 
 ### Platform
 - **Privacy-friendly first-party analytics** — no cookies, no third parties; visitors are counted
-  with a daily-rotating salted hash; conversion events (contact, request, resume, chat, demo)
+  with a daily-rotating salted hash; conversion events (contact, request, profile download, chat, demo)
 - **SEO** — per-page metadata with canonicals, branded dynamic OG images, `sitemap.xml`,
   `robots.txt`, JSON-LD (`Person`, `WebSite`, `ProfessionalService`, `BlogPosting`,
   `BreadcrumbList`, `CreativeWork`)
@@ -117,7 +117,7 @@ SEED=1 docker compose up --build     # db + migrations (+ first-run seed) + app
 | `npm run lint` / `typecheck` | ESLint / strict TypeScript |
 | `npm run db:migrate` / `db:deploy` | Create dev migration / apply in production |
 | `npm run db:seed` / `db:studio` | Seed demo content / browse data |
-| `node scripts/generate-resume.mjs` | Regenerate `public/resume.pdf` |
+| `node scripts/generate-profile.mjs` | Regenerate `public/profile.pdf` (company profile) |
 
 ---
 
@@ -175,5 +175,5 @@ into `.next/standalone/` per the Next.js standalone docs, then `pm2 start ecosys
 
 Identity lives in exactly two places: [`src/config/site.ts`](src/config/site.ts) (name, socials,
 navigation, skills, defaults) and the admin **Settings** page (runtime overrides). Replace
-`public/resume.pdf` (or edit `scripts/generate-resume.mjs` and regenerate), and re-run the seed
-if you want fresh demo content.
+`public/profile.pdf` (or edit `scripts/generate-profile.mjs` and regenerate), and re-run the
+seed if you want fresh demo content.

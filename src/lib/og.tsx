@@ -88,12 +88,12 @@ export function ogImage({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: 26,
+              fontSize: 24,
               fontWeight: 700,
               color: '#0b1020',
             }}
           >
-            {'{W}'}
+            CF
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ fontSize: 28, fontWeight: 700, display: 'flex' }}>{developer.name}</div>

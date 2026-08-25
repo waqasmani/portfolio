@@ -10,7 +10,7 @@ WebSockets give you a bidirectional socket, which is more than most features nee
 
 SSE, by contrast, is *just an HTTP response that never ends*. The browser's `EventSource` API reconnects automatically, sends a `Last-Event-ID` header so you can replay missed events, and passes through anything that speaks HTTP. Client-to-server messages go over normal `POST` requests — which you already have.
 
-The rule of thumb I use: if the client mostly *listens*, use SSE. If the client and server genuinely converse at high frequency (multiplayer cursors, collaborative editing), reach for WebSockets.
+The rule of thumb we use: if the client mostly *listens*, use SSE. If the client and server genuinely converse at high frequency (multiplayer cursors, collaborative editing), reach for WebSockets.
 
 ## The server: a streaming route handler
 

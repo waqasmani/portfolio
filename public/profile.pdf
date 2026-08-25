@@ -1,0 +1,94 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 5469 >>
+stream
+BT 0.10 0.12 0.18 rg /F2 25 Tf 54 738 Td (CUSTOMERFLOW) Tj ET
+BT 0.33 0.38 0.85 rg /F2 11.5 Tf 54 720 Td (Full Stack Development Studio) Tj ET
+BT 0.36 0.40 0.50 rg /F1 8.8 Tf 54 704 Td (customerflow.work   ·   hello@customerflow.work   ·   github.com/waqasmani   ·   Remote / Worldwide \(UTC+5\)) Tj ET
+BT 0.33 0.38 0.85 rg /F2 8.5 Tf 54 682 Td (THE STUDIO) Tj ET
+0.85 0.86 0.90 RG 0.7 w 54 676 m 558 676 l S
+BT 0.10 0.12 0.18 rg /F1 9.5 Tf 54 661 Td (CustomerFlow is a full stack development studio with 8+ years of experience designing, building, and) Tj ET
+BT 0.10 0.12 0.18 rg /F1 9.5 Tf 54 647.5 Td (operating production web platforms - multi-tenant SaaS, e-commerce with custom checkouts,) Tj ET
+BT 0.10 0.12 0.18 rg /F1 9.5 Tf 54 634 Td (purpose-built CRMs, and high-throughput APIs. We own outcomes end to end: honest scoping, clean) Tj ET
+BT 0.10 0.12 0.18 rg /F1 9.5 Tf 54 620.5 Td (architecture, measured results, and infrastructure that stays boring after launch.) Tj ET
+BT 0.33 0.38 0.85 rg /F2 8.5 Tf 54 599 Td (WHAT WE DO) Tj ET
+0.85 0.86 0.90 RG 0.7 w 54 593 m 558 593 l S
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 578 Td (Full Stack Development) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9 Tf 204 578 Td (Web applications built end to end - schema to interface to deployment pipeline) Tj ET
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 563.5 Td (SaaS Platforms) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9 Tf 204 563.5 Td (Multi-tenant architecture, billing, dashboards, and provisioning that scales) Tj ET
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 549 Td (E-Commerce) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9 Tf 204 549 Td (Headless storefronts, custom checkouts, and configurators where speed sells) Tj ET
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 534.5 Td (CRM & Business Systems) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9 Tf 204 534.5 Td (Internal platforms shaped around how your company actually works) Tj ET
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 520 Td (API Development) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9 Tf 204 520 Td (Typed REST contracts, rate limiting, webhooks, and high-throughput ingestion) Tj ET
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 505.5 Td (Performance & Infrastructure) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9 Tf 204 505.5 Td (Nginx, Docker, PM2, Cloudflare - fragile hosting made boring and monitored) Tj ET
+BT 0.33 0.38 0.85 rg /F2 8.5 Tf 54 483 Td (CORE STACK) Tj ET
+0.85 0.86 0.90 RG 0.7 w 54 477 m 558 477 l S
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 462 Td (Frontend) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 164 462 Td (Next.js, React, TypeScript, JavaScript, Tailwind CSS, Vue.js) Tj ET
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 447.5 Td (Backend) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 164 447.5 Td (Node.js, Express, Fastify, REST APIs, Authentication, WebSockets / SSE) Tj ET
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 433 Td (Databases) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 164 433 Td (PostgreSQL, MariaDB, MySQL, Prisma, Redis - schema design & query tuning) Tj ET
+BT 0.10 0.12 0.18 rg /F2 9.5 Tf 54 418.5 Td (Cloud & DevOps) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 164 418.5 Td (Linux, Ubuntu, Docker, Nginx, Cloudflare \(+R2\), GitHub Actions, PM2) Tj ET
+BT 0.33 0.38 0.85 rg /F2 8.5 Tf 54 396 Td (SELECTED WORK) Tj ET
+0.85 0.86 0.90 RG 0.7 w 54 390 m 558 390 l S
+BT 0.10 0.12 0.18 rg /F2 10.5 Tf 54 375 Td (Northwind Ops) Tj ET
+BT 0.33 0.38 0.85 rg /F1 9 Tf 481.5 375 Td (Multi-tenant SaaS) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 54 362 Td (Operations platform for a wholesale distributor: 7 warehouses live, 92% less stock drift, tenants) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 54 349 Td (provisioned in minutes instead of weeks.) Tj ET
+BT 0.10 0.12 0.18 rg /F2 10.5 Tf 54 331 Td (Vela Commerce) Tj ET
+BT 0.33 0.38 0.85 rg /F1 9 Tf 513 331 Td (E-commerce) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 54 318 Td (Headless storefront with a custom deposit-aware checkout: +34% checkout conversion and 1.4s LCP on) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 54 305 Td (mobile, down from 6.2s.) Tj ET
+BT 0.10 0.12 0.18 rg /F2 10.5 Tf 54 287 Td (Pulse API) Tj ET
+BT 0.33 0.38 0.85 rg /F1 9 Tf 472.5 287 Td (High-throughput API) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 54 274 Td (Analytics ingestion rebuilt to sustain 38M events/day on two VPS nodes at 78% lower infrastructure) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 54 261 Td (cost than the serverless MVP.) Tj ET
+BT 0.10 0.12 0.18 rg /F2 10.5 Tf 54 243 Td (Atlas CRM) Tj ET
+BT 0.33 0.38 0.85 rg /F1 9 Tf 486 243 Td (Business systems) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 54 230 Td (Freight CRM with a multi-leg quoting engine: quote turnaround cut from 2 business days to 2 minutes,) Tj ET
+BT 0.36 0.40 0.50 rg /F1 9.5 Tf 54 217 Td (100% sales-team adoption.) Tj ET
+BT 0.33 0.38 0.85 rg /F2 8.5 Tf 54 191 Td (HOW WE WORK) Tj ET
+0.85 0.86 0.90 RG 0.7 w 54 185 m 558 185 l S
+BT 0.10 0.12 0.18 rg /F1 9.5 Tf 54 170 Td (Scope honestly \(surprises belong in week one\), ship iteratively \(working software on a staging URL) Tj ET
+BT 0.10 0.12 0.18 rg /F1 9.5 Tf 54 156.5 Td (every week\), measure everything \(performance budgets and conversion events, not vibes\), and document) Tj ET
+BT 0.10 0.12 0.18 rg /F1 9.5 Tf 54 143 Td (as we go \(the next engineer should sleep well\). Clients own their code, repos, and infrastructure from) Tj ET
+BT 0.10 0.12 0.18 rg /F1 9.5 Tf 54 129.5 Td (the first commit.) Tj ET
+0.85 0.86 0.90 RG 0.7 w 54 112 m 558 112 l S
+BT 0.36 0.40 0.50 rg /F1 8.8 Tf 54 98 Td (Full case studies with architecture decisions and measured results: customerflow.work/projects) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000348 00000 n 
+0000000450 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+5971
+%%EOF

@@ -62,14 +62,14 @@ export function AboutPreview() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mt-5 leading-relaxed text-muted">
-              I&apos;m {developer.name} — a {developer.title.toLowerCase()} who has spent{' '}
+              {developer.name} is a {developer.title.toLowerCase()} that has spent{' '}
               {developer.yearsOfExperience}+ years building and operating production systems for
-              startups, agencies, and established businesses. My specialty is the unglamorous part:
+              startups, agencies, and established businesses. Our specialty is the unglamorous part:
               platforms that stay fast, stay up, and stay maintainable long after launch.
             </p>
             <p className="mt-4 leading-relaxed text-muted">
               Every engagement gets the same treatment — honest scoping, measurable goals, clean
-              architecture, and documentation your next engineer will thank you for.
+              architecture, and documentation your next engineer will thank us for.
             </p>
           </Reveal>
           <Reveal delay={0.14}>
@@ -77,7 +77,7 @@ export function AboutPreview() {
               href="/about"
               className="mt-7 inline-flex items-center gap-2 text-[0.9rem] font-medium text-accent transition-colors hover:text-accent-strong"
             >
-              More about how I work
+              More about how we work
               <ArrowRight className="size-4" aria-hidden />
             </Link>
           </Reveal>
@@ -205,7 +205,7 @@ export function ServicesStrip() {
       <div className="shell py-16 md:py-20">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <h2 id="services-strip-title" className="text-xl font-semibold tracking-tight text-ink">
-            What I can take off your plate
+            What we can take off your plate
           </h2>
           <Link
             href="/services"
@@ -246,7 +246,7 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
       <SectionHeading
         eyebrow="Testimonials"
         title={<span id="testimonials-title">Clients who came back</span>}
-        description="Most of my work comes from referrals and repeat engagements. Here's why."
+        description="Most of our work comes from referrals and repeat engagements. Here's why."
         align="center"
       />
       <TestimonialsCarousel testimonials={testimonials} />
@@ -286,8 +286,8 @@ export function CtaSection({ settings }: { settings: SiteSettingsData }) {
               <span className="text-gradient">properly</span>.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-muted">
-              Tell me what you&apos;re trying to ship. I reply to every serious inquiry within{' '}
-              {settings.responseTime.toLowerCase()} — with honest feedback, not a sales pitch.
+              Tell us what you&apos;re trying to ship. Every serious inquiry gets a personal reply
+              within {settings.responseTime.toLowerCase()} — honest feedback, not a sales pitch.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <ButtonLink href="/custom-development" size="lg">

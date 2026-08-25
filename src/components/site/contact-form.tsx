@@ -93,7 +93,7 @@ export function ContactForm() {
         </motion.div>
         <h3 className="mt-5 text-xl font-semibold text-ink">Message sent</h3>
         <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
-          Thanks, {form.name.split(' ')[0]} — your message is in my inbox. Expect a reply within one
+          Thanks, {form.name.split(' ')[0]} — your message is in our inbox. Expect a personal reply within one
           business day.
         </p>
         <button
@@ -197,7 +197,7 @@ export function ContactForm() {
           value={form.message}
           onChange={set('message')}
           aria-invalid={!!errors.message}
-          placeholder="Tell me about the project — goals, timeline, anything you already know…"
+          placeholder="Tell us about the project — goals, timeline, anything you already know…"
           maxLength={5000}
         />
       </Field>

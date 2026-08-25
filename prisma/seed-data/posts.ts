@@ -38,7 +38,7 @@ export const posts: PostSeed[] = [
   },
   {
     slug: 'postgresql-indexing-strategies',
-    title: 'PostgreSQL Indexing Strategies I Reach For First',
+    title: 'PostgreSQL Indexing Strategies We Reach For First',
     excerpt:
       'A working checklist for slow queries: reading EXPLAIN honestly, composite index column order, partial and covering indexes, and when BRIN or GIN beat B-tree.',
     content: md('postgresql-indexing-strategies.md'),
@@ -105,7 +105,7 @@ export const posts: PostSeed[] = [
     slug: 'ai-project-scoping-assistant-claude',
     title: 'Building an AI Project-Scoping Assistant with the Claude API',
     excerpt:
-      'How the AI assistant on my project request form turns three vague sentences into structured requirements — forced tool calls, schema validation, prompt-injection defence, and graceful fallback.',
+      'How the AI assistant on our project request form turns three vague sentences into structured requirements — forced tool calls, schema validation, prompt-injection defence, and graceful fallback.',
     content: md('ai-project-scoping-assistant-claude.md'),
     category: 'AI Development',
     tags: ['AI', 'Claude API', 'TypeScript', 'Product'],

@@ -24,7 +24,7 @@ export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: `Who ${developer.name} is, how he works, and the experience behind ${developer.yearsOfExperience}+ years of shipping production web platforms.`,
+  description: `Who ${developer.name} is, how the studio works, and the experience behind ${developer.yearsOfExperience}+ years of shipping production web platforms.`,
   alternates: { canonical: '/about' },
 };
 
@@ -46,29 +46,29 @@ const principles = [
   },
   {
     icon: NotebookPen,
-    title: 'Document as I go',
-    text: 'Architecture decisions, runbooks, and onboarding docs ship with the code. The measure of my work is how well the next engineer sleeps.',
+    title: 'Document as we go',
+    text: 'Architecture decisions, runbooks, and onboarding docs ship with the code. The measure of our work is how well the next engineer sleeps.',
   },
 ];
 
 const timeline = [
   {
     period: '2021 — Present',
-    role: 'Independent Full Stack Developer',
-    org: 'Freelance & consulting',
-    text: 'Design, build, and operate production platforms end-to-end for clients in logistics, retail, education, and SaaS — from first architecture sketch to monitored deployment.',
+    role: 'CustomerFlow, the studio',
+    org: 'customerflow.work',
+    text: 'Design, build, and operate production platforms end-to-end for clients in logistics, retail, education, and SaaS — from first architecture sketch to monitored deployment, under one accountable roof.',
   },
   {
     period: '2018 — 2021',
-    role: 'Lead Web Developer',
+    role: 'Agency years',
     org: 'Digital product agency',
-    text: 'Led a four-person team delivering client platforms; owned technical architecture, code review culture, and the deployment pipeline across a dozen concurrent projects.',
+    text: 'Our founding engineers led four-person teams delivering client platforms — owning technical architecture, code review culture, and the deployment pipeline across a dozen concurrent projects.',
   },
   {
     period: '2016 — 2018',
-    role: 'Full Stack Developer',
-    org: 'E-commerce scale-up',
-    text: 'Built checkout, inventory, and fulfilment features on a high-traffic storefront; learned the discipline of shipping to systems where downtime has a price per minute.',
+    role: 'E-commerce roots',
+    org: 'High-traffic storefront',
+    text: 'Checkout, inventory, and fulfilment features shipped to a storefront where downtime had a price per minute — the discipline the studio was built on.',
   },
 ];
 
@@ -81,10 +81,10 @@ export default async function AboutPage() {
         eyebrow="About"
         title={
           <>
-            The engineer behind <span className="text-gradient">the platforms</span>
+            The studio behind <span className="text-gradient">the platforms</span>
           </>
         }
-        description="A short, honest introduction — what I build, how I think about software, and why clients keep coming back."
+        description="A short, honest introduction — what we build, how we think about software, and why clients keep coming back."
       />
 
       {/* Profile + bio */}
@@ -133,20 +133,20 @@ export default async function AboutPage() {
               </h2>
               <div className="mt-5 space-y-4 leading-relaxed text-muted">
                 <p>
-                  I&apos;m {settings.developerName}, a {settings.developerTitle.toLowerCase()} with{' '}
+                  {settings.developerName} is a {settings.developerTitle.toLowerCase()} with{' '}
                   {developer.yearsOfExperience}+ years of experience taking web platforms from first
-                  whiteboard sketch to monitored production. My work spans the entire stack — interfaces
-                  in React and Next.js, service layers in Node.js, data in PostgreSQL and MariaDB, and
-                  the Linux servers underneath it all.
+                  whiteboard sketch to monitored production. Our work spans the entire stack —
+                  interfaces in React and Next.js, service layers in Node.js, data in PostgreSQL and
+                  MariaDB, and the Linux servers underneath it all.
                 </p>
                 <p>
-                  My specialization is <strong className="font-medium text-ink">business-critical platforms</strong>:
+                  We specialize in <strong className="font-medium text-ink">business-critical platforms</strong>:
                   multi-tenant SaaS, e-commerce with custom checkout flows, CRMs shaped around how a
                   company actually operates, and APIs that hold up under real traffic. The common thread
                   is systems where correctness and speed are features, not nice-to-haves.
                 </p>
                 <p>
-                  I work best with founders and teams who want an engineering partner — someone who
+                  We work best with founders and teams who want an engineering partner — one that
                   pushes back on scope, proposes simpler paths, and takes responsibility for the result
                   in production, not just the pull request.
                 </p>
@@ -156,7 +156,7 @@ export default async function AboutPage() {
             <Reveal delay={0.1}>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/contact">
-                  Work with me
+                  Work with us
                   <ArrowRight className="size-4" aria-hidden />
                 </ButtonLink>
                 <ResumeButton
@@ -164,7 +164,7 @@ export default async function AboutPage() {
                   className={buttonStyles('secondary', 'md')}
                 >
                   <FileDown className="size-4" aria-hidden />
-                  Download Resume
+                  Download Company Profile
                 </ResumeButton>
               </div>
             </Reveal>
@@ -191,7 +191,7 @@ export default async function AboutPage() {
         <div className="shell py-20 md:py-28">
           <SectionHeading
             eyebrow="Approach"
-            title="How I build software"
+            title="How we build software"
             description="Four principles that show up in every project, whether it's a weekend script or a year-long platform."
           />
           <div className="grid gap-5 sm:grid-cols-2">

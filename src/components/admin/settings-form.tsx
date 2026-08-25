@@ -107,7 +107,7 @@ export function SettingsForm({ initial }: { initial: SettingsInput }) {
         </div>
       </AdminPanel>
 
-      <AdminPanel title="Developer information">
+      <AdminPanel title="Studio information">
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label="Name" htmlFor="st-name" required error={errors.developerName?.[0]}>
             <Input id="st-name" value={form.developerName} onChange={(event) => set('developerName', event.target.value)} />
@@ -118,7 +118,7 @@ export function SettingsForm({ initial }: { initial: SettingsInput }) {
           <Field label="Public email" htmlFor="st-email" required error={errors.developerEmail?.[0]}>
             <Input id="st-email" type="email" value={form.developerEmail} onChange={(event) => set('developerEmail', event.target.value)} />
           </Field>
-          <Field label="Resume path" htmlFor="st-resume" error={errors.resumePath?.[0]} hint="File in /public or a full URL.">
+          <Field label="Company profile path" htmlFor="st-resume" error={errors.resumePath?.[0]} hint="File in /public or a full URL.">
             <Input id="st-resume" value={form.resumePath} onChange={(event) => set('resumePath', event.target.value)} />
           </Field>
           <Field label="Location" htmlFor="st-location" error={errors.location?.[0]}>

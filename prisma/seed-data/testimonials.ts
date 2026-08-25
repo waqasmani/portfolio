@@ -4,7 +4,7 @@ export const testimonials = [
     role: 'Chief Operating Officer',
     company: 'Northwind Distribution Group',
     quote:
-      'We expected a software project and got a business transformation. Waqas took the time to understand how our warehouses actually work before writing a line of code — and it shows everywhere in the platform. Seven sites migrated without a single day of disruption.',
+      'We expected a software project and got a business transformation. The CustomerFlow team took the time to understand how our warehouses actually work before writing a line of code — and it shows everywhere in the platform. Seven sites migrated without a single day of disruption.',
     projectName: 'Northwind Ops',
     avatarSeed: 'sw-emerald',
     sortOrder: 1,
@@ -14,7 +14,7 @@ export const testimonials = [
     role: 'Founder & CEO',
     company: 'Metric Labs',
     quote:
-      'Our ingestion API was falling over weekly and burning our runway. Waqas rebuilt it to handle 38 million events a day on a fraction of the cost — and explained every trade-off clearly enough that our whole team levelled up. Rare combination of depth and communication.',
+      'Our ingestion API was falling over weekly and burning our runway. CustomerFlow rebuilt it to handle 38 million events a day on a fraction of the cost — and explained every trade-off clearly enough that our whole team levelled up. Rare combination of depth and communication.',
     projectName: 'Pulse API',
     avatarSeed: 'do-sky',
     sortOrder: 2,
@@ -24,7 +24,7 @@ export const testimonials = [
     role: 'E-Commerce Director',
     company: 'Maison Vela',
     quote:
-      'Checkout conversion up 34%, page loads four times faster, and a configurator our customers genuinely enjoy using. He treated our performance budget like a contract. The best engineering investment we have made.',
+      'Checkout conversion up 34%, page loads four times faster, and a configurator our customers genuinely enjoy using. They treated our performance budget like a contract. The best engineering investment we have made.',
     projectName: 'Vela Commerce',
     avatarSeed: 'af-amber',
     sortOrder: 3,
@@ -34,7 +34,7 @@ export const testimonials = [
     role: 'Managing Director',
     company: 'Atlas Freight Solutions',
     quote:
-      'Every CRM we tried failed because none of them understood freight. Waqas built one around our actual business — quotes that took two days now take two minutes. My sales team, who hate all software on principle, adopted it in a month.',
+      'Every CRM we tried failed because none of them understood freight. CustomerFlow built one around our actual business — quotes that took two days now take two minutes. My sales team, who hate all software on principle, adopted it in a month.',
     projectName: 'Atlas CRM',
     avatarSeed: 'mr-violet',
     sortOrder: 4,
@@ -44,7 +44,7 @@ export const testimonials = [
     role: 'Studio Director',
     company: 'Fieldnote Design Co.',
     quote:
-      'Ledgerline quietly fixed the worst part of running a studio. Invoices go out faster, reminders stopped being awkward, and our accountant asked what changed at year-end. Thoughtful software from someone who clearly runs projects himself.',
+      'Ledgerline quietly fixed the worst part of running a studio. Invoices go out faster, reminders stopped being awkward, and our accountant asked what changed at year-end. Thoughtful software from a team that clearly runs projects of its own.',
     projectName: 'Ledgerline',
     avatarSeed: 'pr-rose',
     sortOrder: 5,
@@ -54,7 +54,7 @@ export const testimonials = [
     role: 'CTO',
     company: 'Brightline Ventures',
     quote:
-      'We bring Waqas in when the problem is fuzzy and the stakes are high. He scopes honestly, ships when he says he will, and leaves behind documentation and infrastructure our own engineers thank him for. The rarest kind of contractor: one you plan around.',
+      'We bring CustomerFlow in when the problem is fuzzy and the stakes are high. They scope honestly, ship when they say they will, and leave behind documentation and infrastructure our own engineers are thankful for. The rarest kind of partner: one you plan around.',
     projectName: null,
     avatarSeed: 'th-indigo',
     sortOrder: 6,

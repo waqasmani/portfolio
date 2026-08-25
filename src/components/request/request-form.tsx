@@ -234,8 +234,8 @@ export function RequestForm({ initialCategory }: { initialCategory?: string }) {
         </motion.div>
         <h3 className="mt-5 text-xl font-semibold text-ink">Request received</h3>
         <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
-          Thanks, {form.name.split(' ')[0]} — “{form.title}” is in my review queue
-          {briefAttached ? ' with the AI brief attached' : ''}. You&apos;ll hear from me personally,
+          Thanks, {form.name.split(' ')[0]} — “{form.title}” is in our review queue
+          {briefAttached ? ' with the AI brief attached' : ''}. You&apos;ll hear from us personally,
           usually within one business day.
         </p>
       </motion.div>

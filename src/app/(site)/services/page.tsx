@@ -170,7 +170,7 @@ export default function ServicesPage() {
             Engineering that <span className="text-gradient">pays for itself</span>
           </>
         }
-        description="Six ways I help companies ship. Every engagement is scoped honestly, built in shippable increments, and handed over with documentation — no black boxes."
+        description="Six ways we help companies ship. Every engagement is scoped honestly, built in shippable increments, and handed over with documentation — no black boxes."
       />
 
       {/* Service cards */}
@@ -262,17 +262,17 @@ export default function ServicesPage() {
             {
               question: 'Can you take over an existing codebase?',
               answer:
-                'Yes — roughly half my work is inherited systems. Engagements start with a paid audit: I map the architecture, risks, and quick wins into a written report, so we both know what we’re dealing with before committing to a bigger plan.',
+                'Yes — roughly half our work is inherited systems. Engagements start with a paid audit: we map the architecture, risks, and quick wins into a written report, so everyone knows what we’re dealing with before committing to a bigger plan.',
             },
             {
               question: 'Who owns the code and infrastructure?',
               answer:
-                'You do, from the first commit. Everything lives in your GitHub organisation and your cloud accounts. I insist on this — vendor lock-in with a freelancer is a risk you should never accept.',
+                'You do, from the first commit. Everything lives in your GitHub organisation and your cloud accounts. We insist on this — vendor lock-in with an agency is a risk you should never accept.',
             },
             {
               question: 'What happens after launch?',
               answer:
-                'Every project ships with documentation, monitoring, and a handover session. After that you can run it in-house, keep me on a light support retainer, or book iteration sprints as needs come up — no forced ongoing contract.',
+                'Every project ships with documentation, monitoring, and a handover session. After that you can run it in-house, keep us on a light support retainer, or book iteration sprints as needs come up — no forced ongoing contract.',
             },
           ]}
         />
@@ -283,7 +283,7 @@ export default function ServicesPage() {
         <Reveal>
           <div className="flex flex-col items-center gap-6 rounded-3xl border border-line bg-panel px-6 py-12 text-center sm:px-12">
             <h2 className="max-w-xl text-2xl font-semibold tracking-tight text-balance text-ink sm:text-3xl">
-              Not sure which service fits? Describe the problem — I&apos;ll suggest the smallest thing
+              Not sure which service fits? Describe the problem — we&apos;ll suggest the smallest thing
               that solves it.
             </h2>
             <div className="flex flex-wrap justify-center gap-3">

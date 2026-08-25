@@ -28,8 +28,8 @@ export default async function LoginPage() {
       />
       <div className="relative w-full max-w-sm">
         <div className="mb-8 text-center">
-          <span className="inline-flex size-12 items-center justify-center rounded-2xl border border-line-strong bg-panel font-mono text-lg font-bold">
-            <span className="text-gradient">{'{'}W{'}'}</span>
+          <span className="inline-flex size-12 items-center justify-center rounded-2xl border border-line-strong bg-panel font-mono text-[0.95rem] font-bold">
+            <span className="text-gradient">{'{'}CF{'}'}</span>
           </span>
           <h1 className="mt-4 text-xl font-semibold tracking-tight text-ink">
             {developer.name} — Admin

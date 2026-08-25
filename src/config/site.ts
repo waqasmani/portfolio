@@ -1,31 +1,32 @@
 /**
- * Central site configuration — the single source of truth for the developer's
- * identity and static site structure. Runtime-editable values (availability,
- * socials, SEO defaults…) are stored in the SiteSettings table and merge over
- * these defaults; see src/lib/settings.ts.
+ * Central site configuration — the single source of truth for the studio's
+ * brand identity and static site structure. Runtime-editable values
+ * (availability, socials, SEO defaults…) are stored in the SiteSettings table
+ * and merge over these defaults; see src/lib/settings.ts.
  *
  * To rebrand the site, edit this file and re-seed (or update values from the
  * admin dashboard at /admin/settings).
  */
 
 export const developer = {
-  name: 'Waqas Mani',
-  firstName: 'Waqas',
-  initials: 'WM',
-  title: 'Full Stack Web Developer',
-  tagline: 'I build fast, scalable, and beautiful web applications.',
-  bio: 'Full stack engineer with 8+ years of experience designing, building, and operating production web platforms — from multi-tenant SaaS and e-commerce to custom CRMs and high-throughput APIs.',
-  email: 'hello@waqasmani.dev',
+  name: 'CustomerFlow',
+  firstName: 'CustomerFlow',
+  initials: 'CF',
+  title: 'Full Stack Development Studio',
+  tagline: 'We build fast, scalable, and beautiful web applications.',
+  bio: 'Full stack development studio with 8+ years of experience designing, building, and operating production web platforms — from multi-tenant SaaS and e-commerce to custom CRMs and high-throughput APIs.',
+  email: 'hello@customerflow.work',
   location: 'Remote · Worldwide',
   timezone: 'UTC+5 (PKT)',
   yearsOfExperience: 8,
-  resumePath: '/resume.pdf',
+  resumePath: '/profile.pdf',
+  domain: 'customerflow.work',
 } as const;
 
 export const socials = {
   github: 'https://github.com/waqasmani',
-  linkedin: 'https://www.linkedin.com/in/waqasmani',
-  x: 'https://x.com/waqasmani',
+  linkedin: 'https://www.linkedin.com/company/customerflow',
+  x: 'https://x.com/customerflow',
 } as const;
 
 export const siteUrl =
@@ -35,12 +36,13 @@ export const siteMeta = {
   name: `${developer.name} — ${developer.title}`,
   shortName: developer.name,
   description:
-    'Senior full stack web developer building fast, scalable, and beautiful web applications with Next.js, React, Node.js, TypeScript, and PostgreSQL. Available for SaaS, e-commerce, CRM, and API projects.',
+    'CustomerFlow is a full stack development studio building fast, scalable, and beautiful web applications with Next.js, React, Node.js, TypeScript, and PostgreSQL. Available for SaaS, e-commerce, CRM, and API projects.',
   keywords: [
-    'Full Stack Developer',
-    'Next.js Developer',
-    'React Developer',
-    'Node.js Developer',
+    'CustomerFlow',
+    'Full Stack Development Studio',
+    'Next.js Development',
+    'React Development',
+    'Node.js Development',
     'TypeScript',
     'PostgreSQL',
     'SaaS Development',
@@ -191,13 +193,13 @@ export interface SiteSettingsData {
 
 export const defaultSettings: SiteSettingsData = {
   availability: 'AVAILABLE',
-  availabilityNote: 'Currently taking on new freelance projects.',
+  availabilityNote: 'Currently taking on new client projects.',
   nextAvailableDate: 'March 2026',
   preferredProjects: ['SaaS platforms', 'E-commerce builds', 'API & backend systems'],
   responseTime: 'Within 24 hours',
   chatOnline: true,
   chatOfflineMessage:
-    "I'm away from my desk right now — leave a message and I'll get back to you within 24 hours.",
+    "The team is away right now — leave a message and we'll get back to you within 24 hours.",
   developerName: developer.name,
   developerTitle: developer.title,
   developerEmail: developer.email,

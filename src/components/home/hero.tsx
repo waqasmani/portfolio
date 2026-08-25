@@ -113,13 +113,13 @@ export function Hero({ availability, availabilityNote, resumePath }: HeroProps) 
               className={buttonStyles('ghost', 'lg')}
             >
               <FileDown className="size-4" aria-hidden />
-              Resume
+              Company Profile
             </a>
           </motion.div>
 
           <motion.div {...fadeUp(0.38)} className="mt-9 flex items-center gap-1.5">
             <span className="mr-2 font-mono text-[0.7rem] tracking-[0.14em] text-faint uppercase">
-              Find me on
+              Find us on
             </span>
             <a
               href={socials.github}

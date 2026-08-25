@@ -79,7 +79,7 @@ export function CodePanel({ className }: { className?: string }) {
           <span className="size-2.5 rounded-full bg-rose/80" />
           <span className="size-2.5 rounded-full bg-amber/80" />
           <span className="size-2.5 rounded-full bg-emerald/80" />
-          <span className="ml-3 font-mono text-[0.72rem] text-faint">route.ts — portfolio-api</span>
+          <span className="ml-3 font-mono text-[0.72rem] text-faint">route.ts — customerflow-api</span>
           <span className="ml-auto rounded-md border border-line bg-panel px-1.5 py-0.5 font-mono text-[0.62rem] tracking-wide text-emerald">
             TS
           </span>

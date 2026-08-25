@@ -165,7 +165,7 @@ export function ChatWidget({ online, responseTime, developerName, initials }: Ch
       event.preventDefault();
       setLeadError(null);
       if (lead.name.trim().length < 2) {
-        setLeadError('Please share your name so I know who I’m talking to.');
+        setLeadError('Please share your name so we know who we’re talking to.');
         return;
       }
       if (lead.message.trim().length === 0) {
@@ -383,7 +383,7 @@ export function ChatWidget({ online, responseTime, developerName, initials }: Ch
               <form onSubmit={startConversation} className="flex flex-1 flex-col gap-4 overflow-y-auto p-5">
                 <div className="rounded-xl border border-line bg-panel p-4 text-[0.85rem] leading-relaxed text-muted">
                   👋 Hi! Ask about a project, availability, or anything technical.{' '}
-                  {online ? 'I usually reply within minutes.' : `I'm away right now but reply ${responseTime.toLowerCase()}.`}
+                  {online ? 'We usually reply within minutes.' : `We're away right now but reply ${responseTime.toLowerCase()}.`}
                 </div>
                 <Field label="Name" htmlFor="chat-name" required>
                   <Input

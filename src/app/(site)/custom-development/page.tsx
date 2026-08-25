@@ -59,7 +59,7 @@ export default async function CustomDevelopmentPage({
             From rough idea to <span className="text-gradient">shipped software</span>
           </>
         }
-        description="Describe what you need — a script, an app, an API, a fix — and it lands directly in my review queue. The optional AI assistant helps turn your idea into a structured brief first, so we start the conversation two steps ahead."
+        description="Describe what you need — a script, an app, an API, a fix — and it lands directly in our review queue. The optional AI assistant helps turn your idea into a structured brief first, so we start the conversation two steps ahead."
       >
         <ul className="mt-8 flex flex-wrap gap-2">
           {requestTypes.map((type) => (

@@ -14,8 +14,8 @@ import { GithubIcon, LinkedinIcon } from '@/components/ui/social-icons';
 function Logo() {
   return (
     <Link href="/" className="group flex items-center gap-2.5" aria-label={`${developer.name} — home`}>
-      <span className="relative flex size-9 items-center justify-center overflow-hidden rounded-xl border border-line-strong bg-panel font-mono text-[0.82rem] font-bold text-ink transition-colors group-hover:border-[color-mix(in_srgb,var(--accent)_55%,transparent)]">
-        <span className="text-gradient">{'{'}W{'}'}</span>
+      <span className="relative flex size-9 items-center justify-center overflow-hidden rounded-xl border border-line-strong bg-panel font-mono text-[0.68rem] font-bold text-ink transition-colors group-hover:border-[color-mix(in_srgb,var(--accent)_55%,transparent)]">
+        <span className="text-gradient">{'{'}CF{'}'}</span>
       </span>
       <span className="hidden text-[0.95rem] font-semibold tracking-tight text-ink sm:block">
         {developer.name}

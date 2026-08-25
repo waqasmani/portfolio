@@ -29,10 +29,10 @@ export default async function HomePage() {
           '@context': 'https://schema.org',
           '@graph': [
             {
-              '@type': 'Person',
-              '@id': `${siteUrl}/#person`,
+              '@type': 'Organization',
+              '@id': `${siteUrl}/#org`,
               name: settings.developerName,
-              jobTitle: settings.developerTitle,
+              slogan: settings.developerTitle,
               email: `mailto:${settings.developerEmail}`,
               url: siteUrl,
               sameAs: Object.values(settings.socials ?? socials),
@@ -45,14 +45,14 @@ export default async function HomePage() {
               url: siteUrl,
               name: siteMeta.shortName,
               description: settings.seoDescription,
-              publisher: { '@id': `${siteUrl}/#person` },
+              publisher: { '@id': `${siteUrl}/#org` },
             },
             {
               '@type': 'ProfessionalService',
               '@id': `${siteUrl}/#service`,
               name: `${settings.developerName} — ${settings.developerTitle}`,
               url: siteUrl,
-              founder: { '@id': `${siteUrl}/#person` },
+              parentOrganization: { '@id': `${siteUrl}/#org` },
               areaServed: 'Worldwide',
               serviceType: [
                 'Full Stack Web Development',

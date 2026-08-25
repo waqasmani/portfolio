@@ -36,7 +36,7 @@ async function seedAdmin() {
   const user = await db.user.upsert({
     where: { email },
     update: {},
-    create: { email, name: 'Waqas Mani', passwordHash, role: 'ADMIN' },
+    create: { email, name: 'CustomerFlow', passwordHash, role: 'ADMIN' },
   });
   console.log(`✔ Admin user ready: ${email}`);
   return user;

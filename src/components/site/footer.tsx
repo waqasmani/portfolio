@@ -25,11 +25,11 @@ export async function Footer() {
         {/* Brand */}
         <div>
           <p className="font-mono text-sm font-bold text-ink">
-            <span className="text-gradient">{'{'}W{'}'}</span> {settings.developerName}
+            <span className="text-gradient">{'{'}CF{'}'}</span> {settings.developerName}
           </p>
           <p className="mt-3.5 max-w-sm text-sm leading-relaxed text-muted">
             {settings.developerTitle} crafting fast, scalable web platforms — from multi-tenant SaaS
-            to high-throughput APIs. Available for select freelance engagements.
+            to high-throughput APIs. Available for select client engagements.
           </p>
           <div className="mt-5 flex items-center gap-3">
             <a

@@ -1,8 +1,8 @@
 /**
- * Generates public/resume.pdf — a clean single-page resume — with zero
- * dependencies (hand-assembled PDF using the built-in Helvetica fonts).
+ * Generates public/profile.pdf — a clean single-page company profile — with
+ * zero dependencies (hand-assembled PDF using the built-in Helvetica fonts).
  *
- *   node scripts/generate-resume.mjs
+ *   node scripts/generate-profile.mjs
  *
  * Content mirrors src/config/site.ts; regenerate after rebranding.
  */
@@ -11,7 +11,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const out = join(here, '..', 'public', 'resume.pdf');
+const out = join(here, '..', 'public', 'profile.pdf');
 
 const PAGE_W = 612;
 const PAGE_H = 792;
@@ -73,24 +73,40 @@ function sectionLabel(label) {
 }
 
 // ---------------------------------------------------------------- header
-text('WAQAS MANI', { size: 25, bold: true });
+text('CUSTOMERFLOW', { size: 25, bold: true });
 y -= 18;
-text('Full Stack Web Developer', { size: 11.5, color: ACCENT, bold: true });
+text('Full Stack Development Studio', { size: 11.5, color: ACCENT, bold: true });
 y -= 16;
-text('hello@waqasmani.dev   ·   github.com/waqasmani   ·   linkedin.com/in/waqasmani   ·   Remote / Worldwide (UTC+5)', {
+text('customerflow.work   ·   hello@customerflow.work   ·   github.com/waqasmani   ·   Remote / Worldwide (UTC+5)', {
   size: 8.8,
   color: MUTED,
 });
 y -= 14;
 
-// ---------------------------------------------------------------- summary
-sectionLabel('Summary');
+// ---------------------------------------------------------------- about
+sectionLabel('The Studio');
 paragraph(
-  'Full stack engineer with 8+ years designing, building, and operating production web platforms - multi-tenant SaaS, e-commerce with custom checkouts, purpose-built CRMs, and high-throughput APIs. I own outcomes end to end: honest scoping, clean architecture, measured results, and infrastructure that stays boring after launch.'
+  'CustomerFlow is a full stack development studio with 8+ years of experience designing, building, and operating production web platforms - multi-tenant SaaS, e-commerce with custom checkouts, purpose-built CRMs, and high-throughput APIs. We own outcomes end to end: honest scoping, clean architecture, measured results, and infrastructure that stays boring after launch.'
 );
 
-// ---------------------------------------------------------------- skills
-sectionLabel('Core Skills');
+// ---------------------------------------------------------------- services
+sectionLabel('What We Do');
+const services = [
+  ['Full Stack Development', 'Web applications built end to end - schema to interface to deployment pipeline'],
+  ['SaaS Platforms', 'Multi-tenant architecture, billing, dashboards, and provisioning that scales'],
+  ['E-Commerce', 'Headless storefronts, custom checkouts, and configurators where speed sells'],
+  ['CRM & Business Systems', 'Internal platforms shaped around how your company actually works'],
+  ['API Development', 'Typed REST contracts, rate limiting, webhooks, and high-throughput ingestion'],
+  ['Performance & Infrastructure', 'Nginx, Docker, PM2, Cloudflare - fragile hosting made boring and monitored'],
+];
+for (const [label, value] of services) {
+  text(label, { size: 9.5, bold: true });
+  text(value, { x: MARGIN + 150, size: 9, color: MUTED });
+  y -= 14.5;
+}
+
+// ---------------------------------------------------------------- stack
+sectionLabel('Core Stack');
 const skills = [
   ['Frontend', 'Next.js, React, TypeScript, JavaScript, Tailwind CSS, Vue.js'],
   ['Backend', 'Node.js, Express, Fastify, REST APIs, Authentication, WebSockets / SSE'],
@@ -103,63 +119,52 @@ for (const [label, value] of skills) {
   y -= 14.5;
 }
 
-// ---------------------------------------------------------------- experience
-sectionLabel('Experience');
-const roles = [
+// ---------------------------------------------------------------- selected work
+sectionLabel('Selected Work');
+const work = [
   {
-    role: 'Independent Full Stack Developer',
-    org: 'Freelance & consulting',
-    period: '2021 - Present',
-    bullets: [
-      'Design, build, and operate client platforms end to end: a multi-tenant operations SaaS across 7 warehouses (92% less stock drift), a headless storefront (+34% checkout conversion, 1.4s LCP), and a freight CRM cutting quote turnaround from 2 days to 2 minutes.',
-      'Rebuilt an analytics ingestion pipeline to sustain 38M events/day on two VPS nodes at 78% lower cost; maintain an open-source zero-downtime deployment CLI used by 1.9k+ developers.',
-    ],
+    name: 'Northwind Ops',
+    tag: 'Multi-tenant SaaS',
+    line: 'Operations platform for a wholesale distributor: 7 warehouses live, 92% less stock drift, tenants provisioned in minutes instead of weeks.',
   },
   {
-    role: 'Lead Web Developer',
-    org: 'Digital product agency',
-    period: '2018 - 2021',
-    bullets: [
-      'Led a four-person team across a dozen concurrent client builds; owned architecture, code review culture, and the CI/CD pipeline that took deployments from monthly to daily.',
-    ],
+    name: 'Vela Commerce',
+    tag: 'E-commerce',
+    line: 'Headless storefront with a custom deposit-aware checkout: +34% checkout conversion and 1.4s LCP on mobile, down from 6.2s.',
   },
   {
-    role: 'Full Stack Developer',
-    org: 'E-commerce scale-up',
-    period: '2016 - 2018',
-    bullets: [
-      'Shipped checkout, inventory, and fulfilment features on a high-traffic storefront where downtime had a price per minute.',
-    ],
+    name: 'Pulse API',
+    tag: 'High-throughput API',
+    line: 'Analytics ingestion rebuilt to sustain 38M events/day on two VPS nodes at 78% lower infrastructure cost than the serverless MVP.',
+  },
+  {
+    name: 'Atlas CRM',
+    tag: 'Business systems',
+    line: 'Freight CRM with a multi-leg quoting engine: quote turnaround cut from 2 business days to 2 minutes, 100% sales-team adoption.',
   },
 ];
-for (const entry of roles) {
-  text(entry.role, { size: 10.5, bold: true });
-  rightText(entry.period, { size: 9, color: MUTED });
+for (const entry of work) {
+  text(entry.name, { size: 10.5, bold: true });
+  rightText(entry.tag, { size: 9, color: ACCENT });
   y -= 13;
-  text(entry.org, { size: 9, color: ACCENT });
-  y -= 14;
-  for (const bullet of entry.bullets) {
-    text('-', { x: MARGIN + 2, size: 9.5, color: MUTED });
-    const lines = wrap(bullet, 96);
-    for (const line of lines) {
-      text(line, { x: MARGIN + 14, size: 9.5, color: INK });
-      y -= 13;
-    }
-    y -= 1;
+  const lines = wrap(entry.line, 100);
+  for (const line of lines) {
+    text(line, { x: MARGIN, size: 9.5, color: MUTED });
+    y -= 13;
   }
-  y -= 6;
+  y -= 5;
 }
 
 // ---------------------------------------------------------------- approach
-sectionLabel('How I Work');
+sectionLabel('How We Work');
 paragraph(
-  'Scope honestly (surprises belong in week one), ship iteratively (working software on a staging URL every week), measure everything (performance budgets and conversion events, not vibes), and document as I go (the next engineer should sleep well). Clients own their code, repos, and infrastructure from the first commit.'
+  'Scope honestly (surprises belong in week one), ship iteratively (working software on a staging URL every week), measure everything (performance budgets and conversion events, not vibes), and document as we go (the next engineer should sleep well). Clients own their code, repos, and infrastructure from the first commit.'
 );
 
 y -= 4;
 rule();
 y -= 14;
-text('Full case studies with architecture decisions and measured results: see the Projects section of my portfolio.', {
+text('Full case studies with architecture decisions and measured results: customerflow.work/projects', {
   size: 8.8,
   color: MUTED,
 });
