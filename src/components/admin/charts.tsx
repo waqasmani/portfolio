@@ -161,31 +161,38 @@ export function Donut({
   const total = Math.max(1, items.reduce((sum, item) => sum + item.value, 0));
   const radius = 40;
   const circumference = 2 * Math.PI * radius;
-  let offset = 0;
+
+  // Precompute segment offsets so render stays pure.
+  const segments: Array<{ label: string; dash: number; offset: number; color: string }> = [];
+  let runningOffset = 0;
+  for (const [index, item] of items.entries()) {
+    const dash = (item.value / total) * circumference;
+    segments.push({
+      label: item.label,
+      dash,
+      offset: runningOffset,
+      color: donutColors[index % donutColors.length],
+    });
+    runningOffset += dash;
+  }
 
   return (
     <div className={cn('flex items-center gap-6', className)}>
       <svg viewBox="0 0 100 100" className="size-28 shrink-0 -rotate-90" role="img" aria-label="Breakdown">
         <circle cx="50" cy="50" r={radius} fill="none" stroke="var(--line)" strokeWidth="12" />
-        {items.map((item, index) => {
-          const fraction = item.value / total;
-          const dash = fraction * circumference;
-          const element = (
-            <circle
-              key={item.label}
-              cx="50"
-              cy="50"
-              r={radius}
-              fill="none"
-              stroke={donutColors[index % donutColors.length]}
-              strokeWidth="12"
-              strokeDasharray={`${dash} ${circumference - dash}`}
-              strokeDashoffset={-offset}
-            />
-          );
-          offset += dash;
-          return element;
-        })}
+        {segments.map((segment) => (
+          <circle
+            key={segment.label}
+            cx="50"
+            cy="50"
+            r={radius}
+            fill="none"
+            stroke={segment.color}
+            strokeWidth="12"
+            strokeDasharray={`${segment.dash} ${circumference - segment.dash}`}
+            strokeDashoffset={-segment.offset}
+          />
+        ))}
       </svg>
       <ul className="min-w-0 flex-1 space-y-1.5">
         {items.map((item, index) => (

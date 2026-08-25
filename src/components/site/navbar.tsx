@@ -37,13 +37,15 @@ export function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
-    onScroll();
+    const initialFrame = requestAnimationFrame(onScroll);
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      cancelAnimationFrame(initialFrame);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
-  // Close the menu on navigation and lock body scroll while open.
-  useEffect(() => setMenuOpen(false), [pathname]);
+  // Lock body scroll while the mobile menu is open.
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => {

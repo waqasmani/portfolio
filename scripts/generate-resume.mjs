@@ -16,7 +16,6 @@ const out = join(here, '..', 'public', 'resume.pdf');
 const PAGE_W = 612;
 const PAGE_H = 792;
 const MARGIN = 54;
-const CONTENT_W = PAGE_W - MARGIN * 2;
 
 const INK = '0.10 0.12 0.18';
 const MUTED = '0.36 0.40 0.50';

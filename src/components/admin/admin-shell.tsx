@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
@@ -44,8 +44,6 @@ export function AdminShell({ user, children }: { user: AdminUser; children: Reac
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => setMobileOpen(false), [pathname]);
-
   const items = navigation.filter((item) => !item.adminOnly || user.role === 'ADMIN');
 
   async function logout() {
@@ -62,6 +60,7 @@ export function AdminShell({ user, children }: { user: AdminUser; children: Reac
           <Link
             key={item.href}
             href={item.href}
+            onClick={() => setMobileOpen(false)}
             aria-current={active ? 'page' : undefined}
             className={cn(
               'flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[0.86rem] font-medium transition-colors',

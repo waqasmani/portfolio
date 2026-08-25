@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowUp, Mail } from 'lucide-react';
-import { developer, mainNav } from '@/config/site';
+import { mainNav } from '@/config/site';
 import { getSettings } from '@/lib/settings';
 import { AvailabilityDot } from '@/components/site/availability';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/social-icons';

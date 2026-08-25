@@ -12,7 +12,6 @@ function log(level: Level, message: string, meta?: Record<string, unknown>) {
   const line = isProd
     ? JSON.stringify(entry)
     : `[${level.toUpperCase()}] ${message}${meta ? ` ${JSON.stringify(meta)}` : ''}`;
-  // eslint-disable-next-line no-console
   (level === 'error' ? console.error : level === 'warn' ? console.warn : console.log)(line);
 }
 

@@ -62,7 +62,10 @@ export function ChatWidget({ online, responseTime, developerName, initials }: Ch
   const fileInputRef = useRef<HTMLInputElement>(null);
   const reduceMotion = useReducedMotion();
 
-  openRef.current = open;
+  // Keep a ref of `open` for the SSE handler without re-subscribing.
+  useEffect(() => {
+    openRef.current = open;
+  }, [open]);
 
   // ---------------------------------------------------------------------
   // Bootstrapping: restore visitor id + previous conversation
@@ -70,17 +73,21 @@ export function ChatWidget({ online, responseTime, developerName, initials }: Ch
 
   useEffect(() => {
     visitorIdRef.current = getVisitorId();
-    try {
-      const savedName = localStorage.getItem('pf_chat_name') ?? '';
-      const savedEmail = localStorage.getItem('pf_chat_email') ?? '';
-      setLead((current) => ({ ...current, name: savedName, email: savedEmail }));
-    } catch {
-      // storage unavailable
-    }
 
     fetch(`/api/chat/history?visitorId=${encodeURIComponent(visitorIdRef.current)}`)
       .then((response) => (response.ok ? response.json() : null))
       .then((data) => {
+        // Restore remembered identity alongside the conversation, in one
+        // async pass (avoids synchronous setState inside the effect body).
+        try {
+          const savedName = localStorage.getItem('pf_chat_name') ?? '';
+          const savedEmail = localStorage.getItem('pf_chat_email') ?? '';
+          if (savedName || savedEmail) {
+            setLead((current) => ({ ...current, name: savedName, email: savedEmail }));
+          }
+        } catch {
+          // storage unavailable
+        }
         if (data?.conversation) {
           setConversationId(data.conversation.id);
           setConversationStatus(data.conversation.status);
@@ -148,9 +155,6 @@ export function ChatWidget({ online, responseTime, developerName, initials }: Ch
     if (list) list.scrollTop = list.scrollHeight;
   }, [messages, open, adminTyping]);
 
-  useEffect(() => {
-    if (open) setUnread(0);
-  }, [open]);
 
   // ---------------------------------------------------------------------
   // Actions
@@ -296,7 +300,12 @@ export function ChatWidget({ online, responseTime, developerName, initials }: Ch
         initial={reduceMotion ? false : { scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.4, type: 'spring', stiffness: 260, damping: 20 }}
-        onClick={() => setOpen((value) => !value)}
+        onClick={() =>
+          setOpen((value) => {
+            if (!value) setUnread(0);
+            return !value;
+          })
+        }
         aria-label={open ? 'Close chat' : `Chat with ${developerName}`}
         aria-expanded={open}
         className="fixed right-5 bottom-5 z-[70] flex size-14 items-center justify-center rounded-full bg-accent text-accent-ink shadow-[var(--glow-accent)] transition-transform hover:scale-105 active:scale-95"

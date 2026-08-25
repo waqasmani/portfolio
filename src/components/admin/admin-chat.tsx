@@ -66,7 +66,10 @@ export function AdminChat({ currentUser }: { currentUser: { id: string; name: st
   const typingTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastTypingSent = useRef(0);
   const { toast } = useToast();
-  activeIdRef.current = activeId;
+
+  useEffect(() => {
+    activeIdRef.current = activeId;
+  }, [activeId]);
 
   // -----------------------------------------------------------------
   // Data loading
@@ -90,8 +93,9 @@ export function AdminChat({ currentUser }: { currentUser: { id: string; name: st
     }
   }, [statusFilter, query]);
 
+  // Note: the loading flag is set by the selection handlers, so this stays
+  // async-only and safe to call from effects.
   const loadThread = useCallback(async (conversationId: string) => {
-    setLoadingThread(true);
     try {
       const response = await fetch(`/api/admin/chat/messages?conversation=${conversationId}`);
       if (!response.ok) return;
@@ -111,7 +115,6 @@ export function AdminChat({ currentUser }: { currentUser: { id: string; name: st
 
   useEffect(() => {
     if (activeId) void loadThread(activeId);
-    else setThread(null);
   }, [activeId, loadThread]);
 
   // -----------------------------------------------------------------
@@ -295,7 +298,10 @@ export function AdminChat({ currentUser }: { currentUser: { id: string; name: st
               {conversations.map((conversation) => (
                 <li key={conversation.id}>
                   <button
-                    onClick={() => setActiveId(conversation.id)}
+                    onClick={() => {
+                      if (conversation.id !== activeId) setLoadingThread(true);
+                      setActiveId(conversation.id);
+                    }}
                     className={cn(
                       'flex w-full flex-col gap-1 px-4 py-3 text-left transition-colors hover:bg-panel-strong',
                       activeId === conversation.id && 'bg-panel-strong'
@@ -354,7 +360,11 @@ export function AdminChat({ currentUser }: { currentUser: { id: string; name: st
             {/* Thread header */}
             <div className="flex flex-wrap items-center gap-3 border-b border-line px-4 py-3">
               <button
-                onClick={() => setActiveId(null)}
+                onClick={() => {
+                  setActiveId(null);
+                  setThread(null);
+                  setLoadingThread(false);
+                }}
                 className="text-[0.78rem] font-medium text-accent lg:hidden"
               >
                 ← Back

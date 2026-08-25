@@ -18,7 +18,7 @@ import {
 import { projectCategoryLabel, siteUrl } from '@/config/site';
 import { getAdjacentProjects, getProjectBySlug, incrementProjectViews } from '@/lib/content';
 import { PageHeaderless } from '@/components/site/breadcrumbs';
-import { Badge, TechChip } from '@/components/ui/badge';
+import { Badge } from '@/components/ui/badge';
 import { CoverArt } from '@/components/ui/cover-art';
 import { Reveal } from '@/components/motion/reveal';
 import { SectionHeading } from '@/components/ui/section-heading';

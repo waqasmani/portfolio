@@ -19,11 +19,11 @@ export function Counter({ value, suffix = '', durationMs = 1600, className }: Co
 
   useEffect(() => {
     if (!inView) return;
-    if (reduceMotion) {
-      setDisplay(value);
-      return;
-    }
     let frame: number;
+    if (reduceMotion) {
+      frame = requestAnimationFrame(() => setDisplay(value));
+      return () => cancelAnimationFrame(frame);
+    }
     const start = performance.now();
     const tick = (now: number) => {
       const progress = Math.min(1, (now - start) / durationMs);
