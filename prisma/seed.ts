@@ -12,7 +12,7 @@ import 'dotenv/config';
 import { createHash, randomUUID } from 'node:crypto';
 import bcrypt from 'bcryptjs';
 import { PrismaPg } from '@prisma/adapter-pg';
-import { PrismaClient } from '../src/generated/prisma/client';
+import { PrismaClient, type Prisma } from '../src/generated/prisma/client';
 import { defaultSettings } from '../src/config/site';
 import { projects } from './seed-data/projects';
 import { posts } from './seed-data/posts';
@@ -46,7 +46,7 @@ async function seedSettings() {
   await db.siteSettings.upsert({
     where: { id: 1 },
     update: {},
-    create: { id: 1, data: defaultSettings },
+    create: { id: 1, data: defaultSettings as unknown as Prisma.InputJsonValue },
   });
   console.log('✔ Site settings ready');
 }

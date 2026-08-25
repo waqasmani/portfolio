@@ -170,8 +170,27 @@ export const marqueeTech = [
 ] as const;
 
 /** Runtime-editable settings: defaults merged under the SiteSettings DB row. */
-export const defaultSettings = {
-  availability: 'AVAILABLE' as 'AVAILABLE' | 'LIMITED' | 'UNAVAILABLE',
+export interface SiteSettingsData {
+  availability: 'AVAILABLE' | 'LIMITED' | 'UNAVAILABLE';
+  availabilityNote: string;
+  nextAvailableDate: string;
+  preferredProjects: string[];
+  responseTime: string;
+  chatOnline: boolean;
+  chatOfflineMessage: string;
+  developerName: string;
+  developerTitle: string;
+  developerEmail: string;
+  location: string;
+  timezone: string;
+  resumePath: string;
+  socials: Record<string, string>;
+  seoTitle: string;
+  seoDescription: string;
+}
+
+export const defaultSettings: SiteSettingsData = {
+  availability: 'AVAILABLE',
   availabilityNote: 'Currently taking on new freelance projects.',
   nextAvailableDate: 'March 2026',
   preferredProjects: ['SaaS platforms', 'E-commerce builds', 'API & backend systems'],
@@ -185,9 +204,7 @@ export const defaultSettings = {
   location: developer.location,
   timezone: developer.timezone,
   resumePath: developer.resumePath,
-  socials: { ...socials } as Record<string, string>,
+  socials: { ...socials },
   seoTitle: siteMeta.name,
   seoDescription: siteMeta.description,
 };
-
-export type SiteSettingsData = typeof defaultSettings;

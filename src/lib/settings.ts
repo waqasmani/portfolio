@@ -4,6 +4,7 @@ import { db } from '@/lib/db';
 import { logger } from '@/lib/logger';
 import { defaultSettings, type SiteSettingsData } from '@/config/site';
 import { settingsSchema } from '@/lib/schemas';
+import type { Prisma } from '@/generated/prisma/client';
 
 /**
  * Site settings live in a singleton JSON row and merge over code defaults, so
@@ -51,10 +52,11 @@ export const getSettings = cache(loadSettings);
 
 export async function updateSettings(data: SiteSettingsData): Promise<SiteSettingsData> {
   const validated = settingsSchema.parse(data) as SiteSettingsData;
+  const json = validated as unknown as Prisma.InputJsonValue;
   await db.siteSettings.upsert({
     where: { id: 1 },
-    update: { data: validated },
-    create: { id: 1, data: validated },
+    update: { data: json },
+    create: { id: 1, data: json },
   });
   store.__settingsCache = { value: validated, expiresAt: Date.now() + TTL_MS };
   return validated;

@@ -229,10 +229,16 @@ export const testimonialUpsertSchema = z.object({
   published: z.boolean().default(true),
 });
 
-export const inquiryStatusSchema = z.object({
-  status: z.enum(['NEW', 'REVIEWING', 'CONTACTED', 'PROPOSAL_SENT', 'IN_PROGRESS', 'COMPLETED', 'REJECTED']),
-  notes: z.string().trim().max(4000).optional(),
-});
+export const inquiryStatusSchema = z
+  .object({
+    status: z
+      .enum(['NEW', 'REVIEWING', 'CONTACTED', 'PROPOSAL_SENT', 'IN_PROGRESS', 'COMPLETED', 'REJECTED'])
+      .optional(),
+    notes: z.string().trim().max(4000).optional(),
+  })
+  .refine((value) => value.status !== undefined || value.notes !== undefined, {
+    message: 'Nothing to update',
+  });
 
 export const messageStatusSchema = z.object({
   status: z.enum(['NEW', 'READ', 'REPLIED', 'ARCHIVED']),
