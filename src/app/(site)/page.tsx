@@ -1,5 +1,7 @@
+import { developer, siteMeta, siteUrl, skillGroups, socials } from '@/config/site';
 import { getFeaturedProjects, getTestimonials } from '@/lib/content';
 import { getSettings } from '@/lib/settings';
+import { JsonLd } from '@/components/site/json-ld';
 import { Hero } from '@/components/home/hero';
 import {
   AboutPreview,
@@ -22,6 +24,48 @@ export default async function HomePage() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'Person',
+              '@id': `${siteUrl}/#person`,
+              name: settings.developerName,
+              jobTitle: settings.developerTitle,
+              email: `mailto:${settings.developerEmail}`,
+              url: siteUrl,
+              sameAs: Object.values(settings.socials ?? socials),
+              knowsAbout: skillGroups.flatMap((group) => [...group.skills]),
+              description: developer.bio,
+            },
+            {
+              '@type': 'WebSite',
+              '@id': `${siteUrl}/#website`,
+              url: siteUrl,
+              name: siteMeta.shortName,
+              description: settings.seoDescription,
+              publisher: { '@id': `${siteUrl}/#person` },
+            },
+            {
+              '@type': 'ProfessionalService',
+              '@id': `${siteUrl}/#service`,
+              name: `${settings.developerName} — ${settings.developerTitle}`,
+              url: siteUrl,
+              founder: { '@id': `${siteUrl}/#person` },
+              areaServed: 'Worldwide',
+              serviceType: [
+                'Full Stack Web Development',
+                'SaaS Development',
+                'E-Commerce Development',
+                'CRM & Business Systems',
+                'API Development',
+                'Performance & Infrastructure',
+              ],
+            },
+          ],
+        }}
+      />
       <Hero
         availability={settings.availability}
         availabilityNote={settings.availabilityNote}
